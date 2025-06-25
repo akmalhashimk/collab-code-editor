@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Editor specific colors */
+  --editor-bg: hsl(0, 0%, 11.8%);
+  --panel-bg: hsl(0, 0%, 14.5%);
+  --border-color: hsl(0, 0%, 24.3%);
+  --text-primary: hsl(0, 0%, 80%);
+  --text-secondary: hsl(0, 0%, 58.8%);
+  --vscode-blue: hsl(207, 100%, 40.2%);
+  --accent-red: hsl(0, 76.5%, 69.4%);
+  --success-green: hsl(122, 39.4%, 49.2%);
+  --warning-yellow: hsl(45, 100%, 63.5%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--editor-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow: hidden;
+  }
+}
+
+/* Editor specific styles */
+.editor-container {
+  background-color: var(--editor-bg);
+  color: var(--text-primary);
+}
+
+.panel-bg {
+  background-color: var(--panel-bg);
+}
+
+.border-editor {
+  border-color: var(--border-color);
+}
+
+.text-editor-primary {
+  color: var(--text-primary);
+}
+
+.text-editor-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-vscode-blue {
+  background-color: var(--vscode-blue);
+}
+
+.text-vscode-blue {
+  color: var(--vscode-blue);
+}
+
+.bg-accent-red {
+  background-color: var(--accent-red);
+}
+
+.text-accent-red {
+  color: var(--accent-red);
+}
+
+.bg-success-green {
+  background-color: var(--success-green);
+}
+
+.text-success-green {
+  color: var(--success-green);
+}
+
+.bg-warning-yellow {
+  background-color: var(--warning-yellow);
+}
+
+.text-warning-yellow {
+  color: var(--warning-yellow);
+}
+
+/* Monaco Editor overrides */
+.monaco-editor {
+  background-color: var(--editor-bg) !important;
+}
+
+.monaco-editor .margin {
+  background-color: var(--editor-bg) !important;
+}
+
+.monaco-editor .monaco-editor-background {
+  background-color: var(--editor-bg) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--panel-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-secondary);
+}
+
+/* Custom animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s infinite;
+}
+
+/* File explorer styles */
+.file-tree-item:hover {
+  background-color: var(--border-color);
+}
+
+.file-tree-item.active {
+  background-color: rgba(0, 122, 204, 0.2);
+}
+
+/* User cursor styles */
+.user-cursor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.user-cursor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 20px;
+  background-color: currentColor;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Tab styles */
+.tab-active {
+  background-color: var(--editor-bg);
+  border-right: 1px solid var(--border-color);
+}
+
+.tab-inactive {
+  background-color: var(--panel-bg);
+}
+
+.tab-inactive:hover {
+  background-color: var(--border-color);
+}
