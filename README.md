@@ -126,23 +126,6 @@ A real-time collaborative code editor built using **React**, **Node.js**, **WebS
 
 ---
 
-## 🛣️ Roadmap
-
-* [x] Real-time collaborative editing
-* [x] Multi-file folder structure
-* [x] Role-based access control
-* [x] Syntax highlighting for popular languages
-* [x] Tabbed editor interface
-* [x] Responsive, dark-themed UI
-* [ ] Drag-and-drop file/folder UI
-* [ ] Authentication via OAuth
-* [ ] Replay version history with diffs
-* [ ] Chat feature in rooms
-* [ ] GitHub/GitLab sync integration
-* [ ] Offline editing support with sync
-
----
-
 ## 🗓️ Changelog
 
 * **June 25, 2025**: Initial setup
